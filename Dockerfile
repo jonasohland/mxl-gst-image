@@ -1,5 +1,4 @@
-FROM jonasohland/mxl:v1.0.0 AS builder
-
+FROM jonasohland/mxl:3518992 AS builder
 
 USER 0:0
 RUN apt-get update && apt-get install -y \
@@ -20,7 +19,7 @@ RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs > install-rust.sh 
 RUN cd mxl/rust && \
 	/home/mxl/.cargo/bin/cargo build --release --features mxl-sys/mxl-not-built
 
-FROM jonasohland/mxl:v1.0.0
+FROM jonasohland/mxl:3518992
 
 USER 0:0
 RUN apt-get update && apt-get install -y \
